@@ -63,8 +63,7 @@ body
 }
 
 /*------------------------------------------------MAIN----------------------------------------*/
-.main
-{
+.main {
     background-image: url("images/back.jpg");
     background-position: center;
     background-size: cover;
@@ -72,61 +71,75 @@ body
     background-attachment: fixed;
     height: 130vh;
 }
-.main .main_content
-{
+
+.main .main_content {
+    position: relative; /* Ensure this container is positioned relatively */
     padding-top: 10%;
     margin-left: 10%;
     margin-right: 10%;
-    width:40%;
+    width: 80%; /* Adjusted for better responsiveness */
+    z-index: 2; /* Ensure this content is above any pseudo-elements */
 }
-.main .main_content h2
-{
-    color: rgba(79, 255, 88);
-    font-size: 350%;
-    font-family: 'Trebuchet MS', sans-serif;
-    font-weight: bolder;
-    text-align: left;
+
+.main .main_content .text-container {
+    position: relative; /* Ensure this container is positioned relatively */
+    padding: 20px; /* Add some padding for text inside the container */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    z-index: 2; /* Ensure this container is above any pseudo-elements */
+    color: white; /* Make text visible */
+    border-radius: 2%;
 }
-.main .main_content h2 span
-{
-    font-size:50%;
-    opacity: 0.9;
-    font-weight: 400;
-    line-height: 50px;
+
+.main .main_content h2 {
+    color: rgba(79, 255, 88); /* Set text color */
+    font-size: 350%; /* Set font size */
+    font-family: 'Trebuchet MS', sans-serif; /* Set font family */
+    font-weight: bolder; /* Set font weight */
+    text-align: left; /* Align text to the left */
 }
-.main .main_content .btn
-{
-    margin-top:10%;
-    text-align: left;
-    width:0%;
+
+.main .main_content h2 span {
+    font-size: 50%; /* Set font size for span */
+    opacity: 0.9; /* Set opacity for span */
+    font-weight: 400; /* Set font weight for span */
+    line-height: 50px; /* Set line height for span */
 }
-.main .main_content .btn a
-{
-    text-decoration: none;
-    font-size: large;
-    margin:44%;
-    padding: 10px 20px;
-    font-weight: bold;
-    background-color: rgba(0, 0, 0, 0.856);
-    color:white;
-    font-family: 'Trebuchet MS', sans-serif; 
-    text-align: center;
-    border: 2px solid rgba(0, 0, 0, 0.856);
-    transition: 0.5s;
+
+.main .main_content .btn {
+    margin-top: 10%; /* Add margin to the top */
+    text-align: left; /* Align text to the left */
+    width: 0%; /* Set width to 0% (likely intended to reset some styling) */
 }
-.main .main_content .btn a:hover
-{
-    background-color: rgba(255, 255, 255, 0.527);
-    color: rgb(37, 0, 19);
-    border: none;
-    border: 4px solid rgb(37, 0, 19);
-    transition:0.5s;
+
+.main .main_content .btn a {
+    text-decoration: none; /* Remove underline from links */
+    font-size: large; /* Set font size */
+    margin: 44%; /* Add margin (potentially for centering) */
+    padding: 10px 20px; /* Add padding inside the button */
+    font-weight: bold; /* Make text bold */
+    background-color: rgba(0, 0, 0, 0.856); /* Set button background color */
+    color: white; /* Set button text color */
+    font-family: 'Trebuchet MS', sans-serif; /* Set font family */
+    text-align: center; /* Center-align text */
+    border: 2px solid rgba(0, 0, 0, 0.856); /* Add border to the button */
+    transition: 0.5s; /* Add transition effect */
 }
+
+.main .main_content .btn a:hover {
+    background-color:rgb(79, 255, 88); /* Change background on hover */
+    color: rgb(37, 0, 19); /* Change text color on hover */
+    border: none; /* Remove border on hover */
+    border: 4px solid rgb(37, 0, 19); /* Add new border on hover */
+    transition: 0.5s; /* Smooth transition effect */
+}
+
 /*------------------------------------------------SIDE----------------------------------------*/
 .side 
 {
     background-color: rgba(0, 0, 0, 0.966);
     display: flex;
+    flex-wrap: wrap; /* Added for better responsiveness */
     text-align: center;
     color: white;
     font-family: 'Trebuchet MS', sans-serif;
@@ -135,6 +148,10 @@ body
 {
     width:50%;
     float: left;
+}
+.side .right {
+    width: 100%; /* Adjusted for better responsiveness */
+    padding: 10px; /* Added for spacing */
 }
 .side .left img
 {
@@ -154,20 +171,19 @@ body
 }
 .side .right p
 {
-    margin-left: 15%;
-    width: 70%;
+    margin-left: auto; /* Adjusted for center alignment */
+    margin-right: auto; /* Adjusted for center alignment */
     font-size: 147%;
     margin-top: 6%;
 }
-.side .right .side_btn
-{
-    margin-top:4%;
+.side .right .side_btn {
+    margin-top: 4%;
 }
-.side .right .side_btn a
-{
+
+.side .right .side_btn a {
     text-decoration: none;
-    font-size: large;
-    margin:32%;
+    font-size: 1.25em; /* Use em for font size to make it responsive */
+    display: inline-block; /* Ensure the element respects width and margins */
     padding: 10px 20px;
     font-weight: bold;
     color: white;
@@ -175,16 +191,33 @@ body
     text-align: center;
     border: 4px double whitesmoke;
     transition: 0.5s;
+    width: auto; /* Ensure the width adjusts to content */
+    margin: 0 auto; /* Center the button horizontally */
 }
-.side .right .side_btn a:hover
-{
+
+.side .right .side_btn a:hover,
+.side .right .side_btn a:focus {
     background-color: rgb(79, 255, 88);
     color: black;
-    font-weight:bolder;
+    font-weight: bolder;
     border: none;
     border: 4px solid green;
-    transition:0.5s;
+    transition: 0.5s;
 }
+
+.side .right .side_btn a:focus {
+    box-shadow: 0 0 10px rgb(79, 255, 88); /* Glow effect on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .side .right .side_btn a {
+        font-size: 1em; /* Adjust font size for smaller screens */
+        padding: 8px 16px; /* Adjust padding for smaller screens */
+    }
+}
+
 
 /*--------------------------------------------HOW WE HELP----------------------------------------*/
 .product
@@ -241,13 +274,24 @@ body
 {
     text-align: center;
 }
-.product .product_container .item .item_content h3
-{
-    font-size: 25px;
-    line-height: 2px;
+.product .product_container .item .item_content h3 {
+    font-size: 1.5em; /* Use em for better responsiveness */
+    line-height: 1.2; /* Adjust line height for better readability */
     color: rgb(79, 255, 88);
     font-weight: bolder;
+    word-wrap: break-word; /* Ensure long words wrap */
+    text-align: center; /* Center the text within its container */
+    margin: 0.5em 0; /* Add some margin for spacing */
 }
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .product .product_container .item .item_content h3 {
+        font-size: 1.2em; /* Adjust font size for smaller screens */
+        line-height: 1.4; /* Adjust line height for better readability */
+    }
+}
+
 .product .product_container .item .item_content p
 {
     font-size: 20px;
@@ -257,155 +301,138 @@ body
     padding-left: 20%;
 }
 /*--------------------------------------------FOOTER----------------------------------------*/
-footer
-{
-    background-color: black;
-    padding:50px;
-    display: inline-block;
+footer {
+    background-color: rgb(0, 0, 0); /* Transparent black */
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
     font-family: 'Trebuchet MS', sans-serif;
-}
-footer .aimg
-{
-    margin-top:21%;
-}
-footer .pages
-{
-    width:25%;
     text-align: center;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+footer .pages,
+footer .contact,
+footer .social {
+    flex: 1 1 300px;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+footer .pages img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: rgb(255, 255, 255);
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin: 5px 0;
     display: inline-block;
 }
 
-footer .pages p
-{
-    padding-top: 5%;
-    text-align: left;
-    color:rgba(255, 226, 243, 0.808);
-    width:90%;
-    padding-left:12%;
+footer a:hover {
+    color: #fff;
 }
-footer .pages a
-{
-    text-decoration: none;
-    margin:10px;
-    color: rgba(255, 226, 243, 0.808);
-    font-size: 30px;
+
+footer .pages a i {
+    font-size: 20px;
+    margin: 0 5px;
 }
-footer .pages a:hover
-{
-    color:white;
-}
-footer .doc
-{
-    width:25%;
-    text-align: center;
-    display: inline-block;
-    padding-bottom: 5%;
-}
-footer .doc h3
-{
-    color: rgb(255, 226, 243);
-    font-size: 30px;
-    padding: 5px;
+
+footer h3 {
+    color: #f1f1f1;
+    font-size: 20px;
+    margin-bottom: 10px;
     font-weight: bold;
-    line-height: 130px;
 }
-footer .doc a
-{
-    display: block;
+
+footer .side_btn a {
     text-decoration: none;
-    margin:10px;
-    color: rgba(255, 226, 243, 0.808);
-    font-size: 25px;
-}
-footer .doc a:hover
-{
-    color:white;
-}
-footer .social
-{
-    width:25%;
-    text-align: center;
-    display: inline-block;
-}
-footer .social h3
-{
-    color: rgb(255, 226, 243);
-    font-size: 30px;
-    padding: 5px;
-    font-weight: bold;
-    line-height: 130px;
-}
-footer .contact
-{
-    width:20%;
-    text-align: center;
-    text-align: left;
-}
-footer .contact h3
-{
-    color: rgb(255, 226, 243);
-    font-size: 30px;
-    padding: 5px;
-    font-weight: bold;
-    line-height: 130px;
-}
-footer .social p
-{
-    padding-top: 5%;
-    text-align: left;
-    color:rgba(255, 226, 243, 0.808);
-    width:90%;
-    padding-left:12%;
-    font-size: large;
-    margin-bottom: 18%;
-}
-.side .right .side_btn
-{
-    margin-top:4%;
-}
-footer .side_btn a
-{
-    text-decoration: none;
-    font-size: 100%;
+    font-size: 1em;
     padding: 10px 20px;
     font-weight: bold;
     color: white;
-    font-family: 'Trebuchet MS', sans-serif;
-    border: 2px double whitesmoke;
-    transition: 0.5s;
-}
-footer .side_btn a:hover
-{
-    background-color: rgb(79, 255, 88);
-    color: black;
-    font-weight:bolder;
-    border: none;
-    border: 4px solid green;
-    transition:0.5s;
-}
-footer .contact
-{
+    background-color: #4fff58;
+    border: 2px solid #4fff58;
     display: inline-block;
+    margin: 10px 0;
+    transition: all 0.3s ease;
 }
-footer .contact a
-{
-    display: block;
-    font-size: 20px;
-    line-height: 38px;
-    text-decoration: none;;
-    color:rgba(247, 193, 224, 0.904);
-    margin:10px;
+
+footer .side_btn a:hover {
+    background-color: transparent;
+    color: #4fff58;
+    border: 2px solid #4fff58;
 }
-footer .contact a:hover
-{
-    color:white;
+
+footer hr {
+    border: 0;
+    height: 1px;
+    background: #666;
+    margin: 20px 0;
+    width: 100%;
 }
-footer p
-{
-    color:rgba(247, 178, 217, 0.726);
+
+footer p:last-child {
     text-align: center;
-    font-size: 110%;
+    width: 100%;
+    font-size: 0.9em;
+    color: rgba(255, 226, 243, 0.808);
 }
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    footer {
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer .pages,
+    footer .contact,
+    footer .social {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    footer .pages p,
+    footer .social p {
+        text-align: center;
+        padding-left: 0;
+        width: 100%;
+    }
+
+    footer .pages a i {
+        font-size: 20px;
+        margin: 0 5px;
+    }
+
+    footer h3 {
+        font-size: 18px;
+    }
+
+    footer .side_btn a {
+        font-size: 0.9em;
+        padding: 8px 16px;
+    }
+
+    footer p:last-child {
+        font-size: 0.8em;
+    }
+}
+
+
 /*------------------------------------------------MAIN_ABOUT----------------------------------------*/
 .main_about
 {
@@ -536,3 +563,78 @@ footer p
     line-height: 25px;
 }
 /*--------------------------------------------CATERING---------------------------------------*/
+
+/* --------------------------------------------Styling for the dropdown button-------------------------------------------- */
+/* Styling for the dropdown button */
+.dropdown-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 1000;
+    transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0; /* Initially hidden */
+}
+
+.dropdown-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Styling for the dropdown content */
+.dropdown-content {
+    display: none;
+    position: fixed;
+    top: 50px;
+    right: 10px;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Ensure nav is fixed at the top */
+.nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #0000005e;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    transition: top 0.3s;
+}
+
+/* Animation for the dropdown content */
+.dropdown-content.show {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
