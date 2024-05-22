@@ -447,7 +447,7 @@ footer p:last-child {
 }
 .main_about .main_content_about h2
 {
-    color: white;
+    color: rgb(79, 255, 88);
     font-size: 390%;
     font-family: 'Trebuchet MS', sans-serif;
     font-weight: bolder;
@@ -465,7 +465,7 @@ footer p:last-child {
     padding-bottom: 50px;
     height: 100vh;
     font-family: 'Trebuchet MS', sans-serif;
-    color: white;
+    color: rgb(79, 255, 88);
 }
 /*--------------------------------------------DONATE----------------------------------------*/
 .donate
@@ -539,12 +539,13 @@ footer p:last-child {
     height: 180vh;
     margin-top:-1.5%;
     color: white;
+    overflow: hidden;
 }
 .contact_container h2
 {
     font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
     font-size: 33px;
-    text-align: center;
+    text-align: wrap;
     font-family: 'Trebuchet MS', sans-serif;
 }
 .contact_container .g_map
@@ -561,6 +562,7 @@ footer p:last-child {
     padding:15px;
     font-size: 20px;
     line-height: 25px;
+    text-align: wrap;
 }
 /*--------------------------------------------CATERING---------------------------------------*/
 
